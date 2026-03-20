@@ -1,31 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,800;1,900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap");
 @import "tailwindcss";
 
 @theme inline {
-  --color-0: #ffffff;
-  --color-1: #818181;
-  --color-2: #303030;
-  --color-3: #1abc9c;
-  --color-4: #000000;
-  --color-5: #f7f7f7;
-  --color-6: #2a2a2a;
-  --color-7: #ebebeb;
-  --color-8: #f2f2f2;
-  --color-9: #50485b;
-  --color-10: #75d69c;
-  --color-11: #f7be68;
-  --color-12: #5aa1e3;
-  --color-13: #6dab3c;
-  --color-14: #f4524d;
-  --color-15: #f79468;
-  --color-16: #b97ebb;
-  --color-17: #fe6c61;
-  --color-18: #8d6dc4;
-  --color-19: #4cadc9;
-  --color-dark: #000000;
-  --color-primary: #818181;
-  --color-primary-light: #f7f7f7;
+  --color-primary: #003399; /* Azulejo Blue */
+  --color-accent: #d80000;  /* Traditional Red */
+  --color-lisbon-gold: #F4C430; /* Tram Yellow */
+  --color-terracotta: #E2725B; /* Roof Tiles */
+  --color-dark: #0f172a;
+  --color-light: #fffdfa; /* Creamy Paper */
+  
+  --font-nunito: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --font-libre: "Libre Baskerville", ui-serif, Georgia, serif;
+  --font-display: "Playfair Display", serif;
 }
 
+@layer base {
   body {
-    @apply bg-white text-dark antialiased;
+    @apply bg-light text-slate-900 antialiased font-nunito;
+  }
+  
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer utilities {
+  .bg-tiles-bold {
+    background-image: url('/images/patterns/tiles.jpg');
+    background-size: 300px;
+    background-repeat: repeat;
+  }
+
+  .bg-promesa {
+    background-image: url('/images/promesa-tiles.png');
+    background-size: 400px;
+    background-repeat: repeat;
+  }
+
+  .bg-traditional-azulejo {
+    background-image: url('/images/traditional-azulejos.png');
+    background-size: 400px;
+    background-repeat: repeat;
+  }
+  
+  .bg-calcada {
+    background: radial-gradient(circle at 10px 10px, #e5e7eb 2px, transparent 0);
+    background-size: 20px 20px;
+  }
+
+  .lisbon-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #001a4d 100%);
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+  }
+
+  .azulejo-border {
+    border: 20px solid transparent;
+    border-image: url('/images/patterns/tiles.jpg') 60 round;
+  }
+
+  .wave-divider {
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23000' fill-opacity='1' d='M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,144C672,139,768,181,864,208C960,235,1056,245,1152,224C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+    mask-size: cover;
+    mask-repeat: no-repeat;
+  }
 }
